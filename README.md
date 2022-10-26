@@ -11,7 +11,7 @@ https://stackoverflow.com/questions/58396329/opening-multiple-json-files-inside-
 1. Import the necessary libraries 
 2. time_object = datetime.strptime(start_date_time, '%Y-%m-%dT%H:%M:%SZ')
 time_object = datetime.strptime(start_date_time[:-1], '%Y-%m-%dT%H:%M:%S')
-We can either use 'Z' in the string or slice the Z from the string to avoid error
+We can either use 'Z' in the string (line 12) or slice the Z from the string to avoid error (line 13)
 3. Inbuilt func astimezone is used and time is obtained
 https://stackoverflow.com/questions/25264811/pytz-converting-utc-and-timezone-to-local-time
 https://blog.vivekshukla.xyz/how-to-convert-datetime-to-different-timezone-in-python-using-pytz/
