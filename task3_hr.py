@@ -71,9 +71,34 @@ for file in all_files:
         if new[a] > 5:
           plt.plot(q,w,color='red')
         else:
-          plt.plot(q,w,color='black')
+          plt.plot(q,w,color='blue')
         fil_x += q 
         fil_y += w
       plt.show()
 
+      stepcount=main_file['captured_data']['act']['step count']
+      print(type(stepcount))
+      print(len(stepcount))
 
+      ticks = main_file['captured_data']['act']['ticks']
+      print(type(ticks))
+
+      tick = [eval(i) for i in ticks]
+      print(len(tick))
+      print(type(tick))
+
+      tick_arr = np.array(tick)
+      fs = 512
+      freq=tick_arr/fs
+      # print(freq)
+      cum = freq.cumsum().tolist()
+      # print(cum)
+      print(type(cum))
+      
+      cum_list = []
+      for val in cum:
+        cum_list.append(time_ist)
+      sns.scatterplot(x=stepcount,y=cum_list)
+      plt.ylabel('Time')
+      plt.xlabel('Step count')
+      plt.show()
